@@ -1,0 +1,28 @@
+[package]
+name = "esp-test"
+version = "0.1.0"
+authors = ["Boris Glamočanin <boris.glamocanin@htecgroup.com>"]
+edition = "2021"
+resolver = "2"
+
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug = true # Symbols are nice and they don't increase the size on Flash
+opt-level = "z"
+
+[features]
+pio = ["esp-idf-sys/pio"]
+
+[dependencies]
+anyhow = "1"
+embedded-svc = "0.22.1"
+esp-idf-hal = "0.38.1"
+esp-idf-svc = "0.42.3"
+esp-idf-sys = { version = "0.31.6", features = ["binstart"] }
+
+
+[build-dependencies]
+embuild = "0.29"
+anyhow = "1"
